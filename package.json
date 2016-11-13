@@ -5,6 +5,10 @@
   "main": "index.jsx",
   "author": "Niels Vleeming <niels.vleeming@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlemert/snake.git"
+  },
   "scripts": {
     "build": "webpack --config webpack.config.production.js",
     "build:acceptance": "webpack --config webpack.config.acceptance.js",
