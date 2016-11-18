@@ -1,6 +1,5 @@
 /* eslint-disable */
 var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var baseConfig = require('./webpack.config.base');
 
 module.exports = Object.assign(baseConfig, {
@@ -16,10 +15,6 @@ module.exports = Object.assign(baseConfig, {
     ])
   }),
   plugins: baseConfig.plugins.concat([
-    new CopyWebpackPlugin([{
-      from: 'src/html/index.development.html',
-      to: 'index.html'
-    }]),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development')

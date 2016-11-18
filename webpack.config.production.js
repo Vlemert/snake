@@ -1,7 +1,6 @@
 /* eslint-disable */
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var baseConfig = require('./webpack.config.base');
 
 module.exports = Object.assign(baseConfig, {
@@ -14,10 +13,6 @@ module.exports = Object.assign(baseConfig, {
     ])
   }),
   plugins: baseConfig.plugins.concat([
-    new CopyWebpackPlugin([{
-      from: 'src/html/index.production.html',
-      to: 'index.html'
-    }]),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')

@@ -3,7 +3,6 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import '../sass/main.scss';
 import store from './store';
 import listenForEvents from './listen-for-events';
 

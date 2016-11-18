@@ -1,6 +1,6 @@
 /* eslint-disable */
 var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 module.exports = {
@@ -33,9 +33,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([{
-      from: 'src/images',
-      to: 'images/'
-    }])
+    new HtmlWebpackPlugin({
+      template: 'src/html/index.html'
+    })
   ]
 };
