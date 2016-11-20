@@ -1,1 +1,5 @@
-export default 'SNAKE_MOVES';
+import actionTypes from 'constants/action-types';
+
+export default () => ({
+  type: actionTypes.SNAKE_MOVES
+});

@@ -1,9 +1,11 @@
-import { fork } from 'redux-saga/effects';
+import { spawn } from 'redux-saga/effects';
 
 import gameFlow from './game-flow';
+import keyHandler from './key-handler';
 
 export default function* () {
   yield [
-    fork(gameFlow)
+    spawn(gameFlow),
+    spawn(keyHandler)
   ];
 }

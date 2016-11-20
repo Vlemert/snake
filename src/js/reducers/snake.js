@@ -1,10 +1,6 @@
 import gameDimensions from 'constants/game-dimensions';
 import gameResolution from 'constants/game-resolution';
-import keys from 'constants/keys';
-import START_GAME from 'actions/start-game';
-import SNAKE_MOVES from 'actions/snake-moves';
-import KEY_PRESSED from 'actions/key-pressed';
-import SNAKE_EATS from 'actions/snake-eats';
+import actionTypes from 'constants/action-types';
 
 const initialState = {
   x: gameDimensions.WIDTH / 2,
@@ -35,9 +31,9 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
   switch (action.type) {
-    case START_GAME:
+    case actionTypes.START_GAME:
       return initialState;
-    case SNAKE_MOVES:
+    case actionTypes.SNAKE_MOVES:
       return {
         ...state,
         x: state.x + (state.vector.x * gameResolution),
@@ -55,33 +51,61 @@ export default (state = initialState, action = {}) => {
         },
         justAte: false
       };
-    case SNAKE_EATS:
+    case actionTypes.SNAKE_EATS:
       return {
         ...state,
         justAte: true
       };
-    case KEY_PRESSED: {
-      const vector = {
-        ...state.vector
-      };
-
-      if (!vector.locked && vector.x !== 0 && [keys.UP, keys.DOWN].indexOf(action.payload) > -1) {
-        vector.x = 0;
-        vector.y = action.payload === keys.UP ? -1 : 1;
-        vector.locked = true;
-      }
-
-      if (!vector.locked && vector.y !== 0 && [keys.LEFT, keys.RIGHT].indexOf(action.payload) > -1) {
-        vector.y = 0;
-        vector.x = action.payload === keys.LEFT ? -1 : 1;
-        vector.locked = true;
+    case actionTypes.KEY_UP_PRESSED: {
+      if (state.body[0].y === -1) {
+        return state;
       }
 
       return {
         ...state,
-        vector
+        vector: {
+          x: 0,
+          y: -1
+        }
       };
     }
+    case actionTypes.KEY_DOWN_PRESSED: {
+      if (state.body[0].y === 1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        vector: {
+          x: 0,
+          y: 1
+        }
+      };
+    }
+    case actionTypes.KEY_LEFT_PRESSED:
+      if (state.body[0].x === -1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        vector: {
+          x: -1,
+          y: 0
+        }
+      };
+    case actionTypes.KEY_RIGHT_PRESSED:
+      if (state.body[0].x === 1) {
+        return state;
+      }
+
+      return {
+        ...state,
+        vector: {
+          x: 1,
+          y: 0
+        }
+      };
     default:
       return state;
   }

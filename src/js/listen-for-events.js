@@ -1,4 +1,4 @@
-import keyPressed from 'action-creators/key-pressed';
+import keyPressed from 'actions/key-pressed';
 import store from './store';
 
 export default () => {

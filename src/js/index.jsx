@@ -4,7 +4,6 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import listenForEvents from './listen-for-events';
 
 const root = document.getElementById('container');
 
@@ -29,5 +28,3 @@ if (module.hot) {
     renderApp();
   });
 }
-
-listenForEvents();
