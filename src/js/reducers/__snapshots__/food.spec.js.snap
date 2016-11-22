@@ -1,0 +1,6 @@
+exports[`test Default state is correct 1`] = `
+Object {
+  "x": -1,
+  "y": -1,
+}
+`;
