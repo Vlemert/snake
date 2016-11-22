@@ -6,7 +6,7 @@ import getSnake from 'selectors/get-snake';
 // TODO: this should return an array of all body elements to draw
 export default createSelector(
   getSnake,
-  (snake) => snake.body.reduce((body, part) => [
+  snake => snake.body.reduce((body, part) => [
     ...body, {
       x: body[body.length - 1].x + (part.x * gameResolution),
       y: body[body.length - 1].y + (part.y * gameResolution)

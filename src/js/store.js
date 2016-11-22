@@ -24,7 +24,7 @@ if (module.hot) {
   module.hot.accept('./reducers', () => {
     const nextReducers = require('./reducers'); // eslint-disable-line global-require
 
-    store.replaceReducer(reducers);
+    store.replaceReducer(nextReducers);
   });
 }
 

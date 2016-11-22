@@ -15,7 +15,7 @@
     "start": "webpack-dev-server --config webpack.config.development.js --progress --host 0.0.0.0 --port 3500 --hot --inline  --content-base src/html",
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "NODE_PATH=./src/js jest --coverage",
-    "test:lint": "eslint './src/**/*.jsx' && sass-lint -c ./.scss-lint.yml -v -q"
+    "test:lint": "eslint './src/**/*.js' './src/**/*.jsx' --ignore-pattern '**/__tests__/*' --ignore-pattern '**/*.spec.js' && sass-lint -c ./.scss-lint.yml -v -q"
   },
   "dependencies": {
     "react": "^15.3.2",

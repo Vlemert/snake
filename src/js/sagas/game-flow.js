@@ -13,10 +13,8 @@ export default function* () {
     // TODO: fork some stuff to start running the game
     const ticker = yield fork(gameTicker);
 
-    const playerDied = yield take(actionTypes.SNAKE_DIED);
+    yield take(actionTypes.SNAKE_DIED);
 
     yield cancel(ticker);
-
-    console.log('he ded');
   }
 }

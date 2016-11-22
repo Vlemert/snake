@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga';
-import { put, select, call, fork, take } from 'redux-saga/effects';
+import { put, select, call, fork } from 'redux-saga/effects';
 
 import drawGame from 'utils/draw-game';
 import dropFood from 'sagas/drop-food';
