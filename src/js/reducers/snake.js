@@ -1,38 +1,11 @@
-import gameDimensions from 'constants/game-dimensions';
+import initialSnakeState from 'constants/initial-snake-state';
 import gameResolution from 'constants/game-resolution';
 import actionTypes from 'constants/action-types';
 
-const initialState = {
-  x: gameDimensions.WIDTH / 2,
-  y: gameDimensions.HEIGHT / 2,
-  vector: {
-    x: 1,
-    y: 0,
-    locked: false
-  },
-  body: [{
-    x: -1,
-    y: 0
-  }, {
-    x: -1,
-    y: 0
-  }, {
-    x: -1,
-    y: 0
-  }, {
-    x: -1,
-    y: 0
-  }, {
-    x: -1,
-    y: 0
-  }],
-  justAte: false
-};
-
-export default (state = initialState, action = {}) => {
+export default (state = initialSnakeState, action = {}) => {
   switch (action.type) {
     case actionTypes.START_GAME:
-      return initialState;
+      return initialSnakeState;
     case actionTypes.SNAKE_MOVES:
       return {
         ...state,
@@ -45,10 +18,6 @@ export default (state = initialState, action = {}) => {
           },
           ...state.body.slice(0, state.body.length - (state.justAte ? 0 : 1))
         ],
-        vector: {
-          ...state.vector,
-          locked: false
-        },
         justAte: false
       };
     case actionTypes.SNAKE_EATS:
