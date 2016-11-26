@@ -1,5 +1,5 @@
-import actionTypes from '../constants/action-types';
-import gameSpeed from './game-speed';
+import actionTypes from 'constants/action-types';
+import gameSpeed from '../game-speed';
 
 test('Default state is correct', () => {
   expect(gameSpeed()).toMatchSnapshot();

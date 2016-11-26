@@ -1,5 +1,5 @@
-import actionTypes from '../constants/action-types';
-import food from './food';
+import actionTypes from 'constants/action-types';
+import food from '../food';
 
 test('Default state is correct', () => {
   expect(food()).toMatchSnapshot();
