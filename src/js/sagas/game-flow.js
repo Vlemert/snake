@@ -10,7 +10,6 @@ export default function* () {
 
     yield put(startGame());
 
-    // TODO: fork some stuff to start running the game
     const ticker = yield fork(gameTicker);
 
     yield take(actionTypes.SNAKE_DIED);
