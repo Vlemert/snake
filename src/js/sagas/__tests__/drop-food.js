@@ -5,9 +5,10 @@ import dropFood from 'actions/drop-food';
 import dropFoodSaga from '../drop-food';
 
 jest.mock('actions/drop-food');
+
 const saga = dropFoodSaga();
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i += 1) {
   test('Dispatches dropFood', () => {
     expect(saga.next()).toEqual({
       done: false,
