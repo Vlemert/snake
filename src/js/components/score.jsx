@@ -16,4 +16,9 @@ Score.propTypes = {
   highscore: PropTypes.number
 };
 
+Score.defaultProps = {
+  score: 0,
+  highscore: 0
+};
+
 export default Score;
