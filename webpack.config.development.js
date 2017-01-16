@@ -19,7 +19,8 @@ module.exports = Object.assign(baseConfig, {
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
       }
-    })
+    }),
+    new webpack.NamedModulesPlugin()
   ]),
   devServer: {
     headers: {
